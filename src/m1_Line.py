@@ -229,6 +229,8 @@ class Line(object):
         self.start = start.clone()
         self.end = end.clone()
         self.clonenum = 0
+        self.originstart = start.clone()
+        self.originend = end.clone()
 
     def __repr__(self):
         """
@@ -715,7 +717,8 @@ class Line(object):
         #        The tests are already written (below).
         #        They include the Example in the above doc-string.
         # ---------------------------------------------------------------------
-
+        self.start = self.originstart
+        self.end = self.originend
 
 ###############################################################################
 # The TEST functions for the  Line  class begin here.
