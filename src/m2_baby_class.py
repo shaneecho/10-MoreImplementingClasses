@@ -3,8 +3,9 @@ A   Baby   class and functions that use/test it.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Shixin Yan.
+"""  # DONE
+# : 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -107,7 +108,74 @@ def main():
 #          """ Brief description of what an object of the class 'is'. """
 #
 ###############################################################################
+class Baby (object):
+    "This class is based on creating a fake baby and determine whether he or she is sleeping, awake, or hungry"
 
+    def __init__(self, N):
+
+        """What comes in:
+#        -- self
+#        -- a string for the name of the baby
+#     What goes out:  Nothing (i.e., None).
+#     Side effects:
+#        -- Sets instance variables as needed [YOU FIGURE OUT WHAT IS NEEDED!]
+#        -- Prints 'Hello baby <your baby's name>!'
+#     Example:
+#         b = Baby('McKinley')   causes the following to be printed:
+#               Hello baby McKinley!
+#       """
+
+        self.name = N
+        print('Hello baby' + self.name)
+        self.time = 0
+
+
+    def feed_baby(self):
+
+        """feed_baby
+#     What comes in:
+#        -- self
+#     What goes out:  Nothing (i.e., None).
+#     Side effects:
+#        -- Prints 'Thank you for feeding baby <your baby's name>.'
+#        -- Modifies instance variables as needed
+#     Example:
+#         b = Baby('Joshua')
+#         b.feed_baby()         causes the following to be printed:
+#               Hello baby Joshua!
+#               Thank you for feeding baby Joshua.
+        """
+
+        print('Thanks you for feeding baby' + self.name)
+
+    def hour_passes(self):
+
+        """hour_passes
+#     What comes in:
+#        -- self
+#     What goes out:  Nothing (i.e., None).
+#     Side effects:
+#      -- If this is the FIRST time this method has been called
+#         since this Baby was created or last fed, then this method prints:
+# 	             'Baby <your baby's name> is sleeping.'
+#
+#      -- If this is the SECOND time this method has been called
+#         since baby was created or last fed, then this method prints:
+# 	             'Baby <your baby's name> is awake.  Time for food.'
+#
+#      -- If this is the THIRD (OR MORE) time this method has been called
+#           since baby was created or last fed, then this method prints:
+#         'Baby <your baby's name> is CRYING uncontrollably!  Feed the Baby!'
+#       """
+
+        if self.time == 0:
+            print('Baby'+self.name+'is sleeping.')
+            self.time = self.time + 1
+        elif self.time == 1:
+            print('Baby'+self.name+'is awake. Time for food')
+            self.time = self.time + 1
+        else:
+            print('Baby' + self.name+'is CRYING uncontrollably!  Feed the Baby!')
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
