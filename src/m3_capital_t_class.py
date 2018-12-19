@@ -23,7 +23,7 @@ def main():
     # run_test_simple_t()
     # run_test_set_colors()
     # run_test_move_by()
-    # run_test_clone()
+    run_test_clone()
 
 
 def run_test_simple_t():
@@ -280,7 +280,9 @@ class CapitalT(object):
         #        Note: the pdf shows the different locations that
         #        the T moves through, but there is only one T at any moment.
         # ---------------------------------------------------------------------
-        self.h_rect.get_center().move_by(dx,dy)
+        self.v_rect.move_by(dx, dy)
+        self.h_rect.move_by(dx, dy)
+
 
     def clone(self):
         """
@@ -315,8 +317,9 @@ class CapitalT(object):
         # IMPORTANT RESTRICTION: You are NOT permitted to add any instance
         # variables beyond  h_rect  and  v_rect, at any point of this exercise.
         #######################################################################
-
-
+        t2 = CapitalT(self.h_rect.get_center(),self.h_rect.get_width(),self.v_rect.get_height(),self.h_rect.get_height())
+        t2.set_colors(self.h_rect.fill_color, self.h_rect.outline_color)
+        return t2
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # -----------------------------------------------------------------------------
